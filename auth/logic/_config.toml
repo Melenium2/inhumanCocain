@@ -1,0 +1,3 @@
+grpc_port = ":1011"
+jwt_secret = "03af740a9aee48929c30f5a05747fea144c7b5d97144cd0215df9ea94d211ead"
+jwt_expiration = 1296000000

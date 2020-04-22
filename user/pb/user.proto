@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package pb;
+
+service Users {
+    rpc Authenticate(AuthenticateRequest) returns (AuthenticateResponse) {}
+    rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
+	rpc FindUserByEmail(FindUserByEmailRequest) returns (FindUserByEmailResponse) {}
+	rpc FindUserById(FindUserByIdRequest) returns (FindUserByIdResponse) {}
+	rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {}
+}
+
+message User {
+    int32 id = 1;
+	string login = 2;
+	string Email = 3;
+	int64 CreatedAt = 4;
+	string Token = 5;
+	string Contacts = 6;
+    string Role = 7;
+    string password = 8;
+}
+
+message AuthenticateRequest {
+    string login = 1;
+    string password = 2;
+}
+
+message AuthenticateResponse {
+    User user = 1;
+    string err = 2;
+}
+
+message CreateUserRequest {
+    User user = 1;
+}
+
+message CreateUserResponse {
+    string ok = 1; 
+    string err= 2;
+}
+
+message FindUserByEmailRequest {
+    string email = 1;
+}
+
+message FindUserByEmailResponse {
+    User user = 1;
+    string err = 2;
+}
+
+message FindUserByIdRequest{
+    int32 id = 1;
+}
+
+message FindUserByIdResponse {
+    User user = 1;
+    string err = 2;
+}
+
+message UpdateUserRequest {
+    User user = 1;
+}
+
+message UpdateUserResponse {
+    string ok = 1;
+    string err = 2;
+}

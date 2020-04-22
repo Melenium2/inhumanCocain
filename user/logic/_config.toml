@@ -1,0 +1,3 @@
+http_port = ":7070"
+gRPC_port = ":7071"
+database_url = "postgres://postgres:123456@localhost/go_dev?sslmode=disable"

@@ -1,0 +1,102 @@
+syntax = "proto3";
+
+package pbs;
+
+service Support {
+    rpc CreateTicket(CreateTicketRequest) returns (CreateTicketResponse);
+	rpc GetTicket(GetTicketRequest) returns (GetTicketResponse);
+	rpc Tickets(TicketsRequest) returns (TicketsResponse);
+	rpc AcceptTicket(AcceptTicketRequest) returns (AcceptTicketResponse);
+	rpc AddMessage(AddMessageRequest) returns (AddMessageResponse);
+	rpc GetMessages(GetMessagesRequest) returns (GetMessagesResponse);
+	rpc ChangeStatus(ChangeStatusRequest) returns (ChangeStatusResponse);
+}
+
+message Ticket {
+    int32 id = 1;
+    string title = 2;
+    string description = 3;
+    string section = 4;
+    int32 from = 5;
+    int32 helper = 6;
+    int64 createdAt = 7;
+    string status = 8; 
+}
+
+message TicketMessage {
+    int32 id = 1;
+    int32 who = 2;
+    int32 ticketId = 3;
+    string message = 4;
+    int64 sendedAt = 5;
+}
+
+message CreateTicketRequest {
+    Ticket ticket = 1;
+}
+
+message CreateTicketResponse {
+    string ok = 1;
+    string err = 2;
+}
+
+message GetTicketRequest {
+    int32 ticketId = 1;
+}
+
+message GetTicketResponse {
+    Ticket ticket = 1;
+    string err = 2;
+}
+
+message TicketsRequest {
+
+}
+
+message TicketsResponse {
+    repeated Ticket tickets = 1;
+    string err = 2;
+}
+
+message AcceptTicketRequest {
+    int32 ticketId = 1;
+}
+
+message AcceptTicketResponse {
+    string ok = 1;
+    string err = 2;
+}
+
+message AddMessageRequest {
+    TicketMessage message = 1;
+}
+
+message AddMessageResponse {
+    string ok = 1;
+    string err = 2;
+}
+
+message GetMessagesRequest {
+    int32 ticketId = 1;
+}
+
+message GetMessagesResponse {
+    repeated TicketMessage messages = 1;
+    string err = 2;
+}
+
+message ChangeStatusRequest {
+    int32 ticketId = 1;
+    string status = 2;
+}
+
+message ChangeStatusResponse {
+    string ok = 1;
+    string err = 2;
+}
+
+
+
+
+
+

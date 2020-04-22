@@ -1,0 +1,7 @@
+{
+	"service": {
+		"name": "notifications",
+		"tags": [],
+		"port": 6061
+	}
+}

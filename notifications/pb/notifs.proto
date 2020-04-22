@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package pbs;
+
+service Notifications {
+    rpc Create(CreateRequest) returns (CreateResponse) {}
+    rpc FindById(FindByIdRequest) returns (FindByIdResponse) {}
+    rpc Check(CheckRequest) returns (CheckResponse) {}
+}
+
+message Notification {
+    int32 id = 1;
+    string message = 2;
+    int64 createdAt = 3;
+    string status = 4;
+    int32 for = 5;
+    bool checked = 6;
+}
+
+message CreateRequest {
+    Notification notification = 1;
+}
+
+message CreateResponse {
+    string ok = 1;
+    string err = 2;
+}
+
+message FindByIdRequest {
+
+}
+
+message FindByIdResponse {
+    repeated Notification notifications = 1;
+    string err = 2;
+}
+
+message CheckRequest {
+    repeated int32 indexes = 1;
+}
+
+message CheckResponse {
+    string ok = 1;
+    string err = 2;
+}

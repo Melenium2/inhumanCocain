@@ -1,0 +1,7 @@
+{
+	"service": {
+		"name": "support",
+		"tags": [],
+		"port": 5051
+	}
+}

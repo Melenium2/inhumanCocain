@@ -1,0 +1,2 @@
+grpc_port = ":6061"
+database_url = "postgres://postgres:123456@localhost/go_dev?sslmode=disable"

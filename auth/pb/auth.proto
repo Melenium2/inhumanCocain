@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package pbs;
+
+service Auth {
+    rpc Generate(GenerateRequest) returns (GenerateResponse) {}
+    rpc Validate(ValidateRequest) returns (ValidateResponse) {}
+}
+
+message GenerateRequest {
+    int32 userId = 1;
+    string role = 2;
+}
+
+message GenerateResponse {
+    string token = 1;
+
+}
+
+message ValidateRequest {
+    string token = 1;
+}
+
+message ValidateResponse {
+    string token = 1;
+    int32 userId = 2;
+    string role = 3;
+    string err = 4;
+}
